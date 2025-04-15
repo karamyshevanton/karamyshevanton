@@ -27,7 +27,7 @@
 
 * Email: theanton13@gmail.com
 * Telegram: @antonkaramyshev   
-* Мой аккаунт на [GeekJob](https://gkjb.ru/gvGM)
+* Моё резюме на [GeekJob](https://gkjb.ru/gvGM)
 * Моё резюме на [hh.ru](https://yaroslavl.hh.ru/applicant/resumes/view?resume=5970c7caff0546182f0039ed1f457565616f65)
 * Мой аккаунт на [Habr](https://habr.com/ru/users/theuna/)
 * Моё резюме на [Habr Карьера](https://career.habr.com/theuna)
