@@ -19,10 +19,10 @@
 ## ✉️  Контакты:
     * Email: theanton13@gmail.com
     * Telegram: @antonkaramyshev
-    * [GeekJob](https://gkjb.ru/gvGM)
-    * [hh.ru](https://yaroslavl.hh.ru/applicant/resumes/view?resume=5970c7caff0546182f0039ed1f457565616f65)
-    * [Habr](https://habr.com/ru/users/theuna/)
-    * [Habr Карьера](https://career.habr.com/theuna)
+    * Мой аккаунт на [GeekJob](https://gkjb.ru/gvGM)
+    * Моё резюме на [hh.ru](https://yaroslavl.hh.ru/applicant/resumes/view?resume=5970c7caff0546182f0039ed1f457565616f65)
+    * Мой аккаунт на [Habr](https://habr.com/ru/users/theuna/)
+    * Моёрезюме на [Habr Карьера](https://career.habr.com/theuna)
 
 ### Технологии
 <a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="36" height="36" alt="Python" /></a><a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" width="36" height="36" alt="PostgreSQL" /></a><a href="https://www.adobe.com/uk/products/photoshop.html" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/photoshop-colored.svg" width="36" height="36" alt="Photoshop" /></a><a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
