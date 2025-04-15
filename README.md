@@ -23,8 +23,23 @@
 	•	Документация - составление технических заданий, требований, user story;
 	•	Методологии - Agile, Scrum, Waterfall.
 
- (*)(*Soft skills: коммуникабельность, способность находить общий язык, умение работать в условиях недостатка информации, адаптивность к изменениям, проактивность и ответственность за конечный результат.)
-	(*)(*Hard skills: знание нотаций UML, BPMN, знание в SQL, разработка требований, моделированние данных и процессов.*)
+```markdown
+*Soft skills:*
+* коммуникабельность
+* способность находить общий язык
+* умение работать в условиях недостатка информации
+* адаптивность к изменениям
+* проактивность
+* ответственность за конечный результат
+
+*Hard skills:*
+* знание нотаций UML, BPMN
+* знание SQL
+* разработка требований
+* моделирование данных и процессов
+* **программные интерфейсы**
+* **архитектура систем**
+```
 
 ### Технологии
 <a href="https://www.python.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/python-colored.svg" width="36" height="36" alt="Python" /></a><a href="https://www.postgresql.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/postgresql-colored.svg" width="36" height="36" alt="PostgreSQL" /></a><a href="https://www.adobe.com/uk/products/photoshop.html" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/photoshop-colored.svg" width="36" height="36" alt="Photoshop" /></a><a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
