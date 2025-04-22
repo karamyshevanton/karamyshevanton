@@ -20,7 +20,7 @@
 
 # 🛠Навыки и инструменты: 
 	•	Бизнес-процессы - моделирование в BPMN, UML;
-	•	Инструменты - Confluence, Jira, Miro, Holst, draw.io, Figma, Postman, Swagger;
+	•	Инструменты - Confluence, Jira, Miro, Holst, draw.io, Figma, Postman, Swagger, PowerPoint, Excel;
 	•	Документация - составление технических заданий, требований, user и job story;
 	•	Методологии - Agile, Scrum, Waterfall.
 
