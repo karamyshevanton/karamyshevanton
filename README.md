@@ -60,7 +60,7 @@ Soft skills:
 * Telegram: @antonkaramyshev
 * Мой [LinkedIn](https://ru.linkedin.com/in/antonkaramyshev)
 * Мой аккаунт на [Habr](https://habr.com/ru/users/theuna/)
-* Моё резюме на [hh.ru](https://yaroslavl.hh.ru/applicant/resumes/view?resume=5970c7caff0546182f0039ed1f457565616f65)
+* Моё резюме на [hh.ru](https://yaroslavl.hh.ru/resume/b6cdb1a0ff0f045dd40039ed1f76304b4c5776)
 * Моё резюме на [Habr Карьера](https://career.habr.com/karamyshevanton)
 * Моё резюме на [GeekJob](https://gkjb.ru/gwy5)
 
