@@ -1,0 +1,125 @@
+openapi: 3.0.0
+info:
+  title: API сервиса Lucky Insuranc
+  description: >-
+    Коллекция запросов API сервиса. Сервис предоставляет информацию об страховках для животных
+  version: 1.0.1
+  contact:
+    name: LuckyFilms API
+    url: https://lucky.com/info
+    email: LuckyFilms@lucky.com
+  termsOfService: https://lucky.com/terms
+  license:
+    name: license 1.0.1 Lucky
+    url: https://lucky.com/license
+servers:
+  - url: https://4453f729-1913-49be-9dcc-b7a316afa17f.mock.pstmn.io
+    description: string
+tags:
+  - name: Insurance Server API
+paths:
+  /insurance:
+    get:
+      tags:
+        - Insurance Server API
+      summary: Описание всех страховок для животных
+      description: Помощь ветеринара 24/7. Онлайн консультации. Большой выбор ветклиник
+      operationId: insuranceList
+      responses:
+        '200':
+          description: список страховок
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Помощь ветеринара 24/7. Онлайн консультации. Большой выбор ветклиник.
+                  insurances:
+                    type: array
+                    items:
+                          $ref: '#/components/schemas/response_200'
+        '400':
+          description: Неверный запрос - Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example:
+                      example1:
+                        value: "Некорректная дата рождения. Формат: ГГГГ-ММ-ДД"
+                      example2:
+                        value: "Обязательное поле 'Вид животного' не заполнено"
+                      example3:
+                        value: "Недопустимое значение породы: 'Дракон'"
+                      example4:
+                        value: "Вес животного должен быть положительным числом"
+        '403':
+          description: Доступ запрещён
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  descriptions:
+                    type: string
+                    example:
+                      example1:
+                        value: "Недостаточно прав для офрмления страховки"
+                      example2:
+                        value: "Достигнут лимит страховок для вашего аккаунта"
+        '429':
+          description: Превышен лимит запросов. Попробуйте позже
+          content:
+            application/json:
+              schema:
+                properties:
+                  description:
+                    type: string
+                    example: "Превышен лимит: 5 запросов в минуту"
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example: Внутренняя ошибка сервера. Пожалуйста, попробуйте позже
+components:
+  schemas:
+    response_200:
+      required:
+        - type
+        - details
+        - currency
+        - period
+        - price
+      type: object
+      properties:
+        type: 
+          type: string
+          description: Тип животного
+          example: кошка
+        details:
+          type: string
+          description: Описание страховки
+          example: Круглосуточные консультации ветеринарного врача по телефону, в чате или видеосвязи. Включена ежегодная вакцинация от бешенства.
+        price:
+          type: string
+          description: Цена страховки
+          example: 50000
+        currency:
+          type: string
+          description: Цена в рублях
+          example: 'рублей'
+        period:
+          type: string 
+          description: Период страхования
+          example: 'в год'
