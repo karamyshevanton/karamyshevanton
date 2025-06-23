@@ -1,0 +1,383 @@
+openapi: 3.0.0
+info:
+  title: API кофейни "Уютный Уголок"
+  description: API для управления заказами и получением информации о меню
+  version: 1.0.0
+  contact:
+    name: Техническая поддержка
+    email: support@cozy-corner.ru
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/school-eed/Cofee_shop/1.0.0
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/school-eed/Cofee-corner/1.0.0
+  - url: https://api.cozy-corner.ru/v1
+    description: Продуктивная среда
+tags:
+  - name: Меню
+    description: Операции с меню кофейни
+  - name: Заказы
+    description: Управление заказами
+  - name: Информация
+    description: Общая информация о кофейне
+paths:
+  /about:
+    get:
+      tags: 
+        - Информация
+      summary: Информация о кофейне
+      operationId: getCafeInfo
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Информация о кофейне
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/schemas/CafeInfo'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Внутренная ошибка сервера
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/responses/ServerError'
+  
+  /menu:
+    get:
+      tags: [Меню]
+      summary: Получить полное меню
+      operationId: getFullMenu
+      parameters:
+        - name: category
+          in: query
+          description: Фильтр по категории
+          schema:
+            type: string
+            enum: [кофе, десерты, сезонное]
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Меню кофейни Уютный уголок
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/schemas/MenuResponse'
+        '400':
+          description: Неверный запрос - Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example: Неверный запрос
+                menu:
+                  type: array
+                  items:
+                $ref: '#/components/responses/BadRequest'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example: Внутренняя ошибка сервера. Пожалуйста, попробуйте позже
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/responses/ServerError'
+  
+  /orders:
+    post:
+      tags: [Заказы]
+      summary: Создать новый заказ
+      operationId: createOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
+      responses:
+        '201':
+          description: Заказ создан
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Информация о кофейне
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/schemas/OrderResponse'
+        '400':
+          description: Неверный запрос
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Неверный запрос
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/responses/BadRequest'
+        '429':
+          description: Слишком много повторений
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: object
+                    description: string
+                    example: Сликшом много повторений. Повторите попытку позже
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/responses/TooManyRequests'
+        '500':
+          description: Внутренняя ошибка сервера
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  description:
+                    type: string
+                    example: Внутренняя ошибка сервера. Пожалуйста, попробуйте позже
+                  menu:
+                    type: array
+                    items:
+                $ref: '#/components/responses/ServerError'
+
+components:
+  schemas:
+    CafeInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          example: "Уютный Уголок"
+        address:
+          type: string
+          example: "ул. Кофейная, 777, Москва"
+        phone:
+          type: string
+          example: "+0 (000) 000-00-00"
+        working_hours:
+          type: string
+          example: |
+            Пн-Пт: 8:00-22:00
+            Сб-Вс: 9:00-23:00
+    MenuCategory:
+      type: object
+      properties:
+        name:
+          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuItem'
+    MenuItem:
+      type: object
+      required: [id, name, price]
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Уникальный ID позиции
+        name:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+          format: float
+        weight:
+          type: string
+          description: Вес/объем (г/мл)
+        is_popular:
+          type: boolean
+          default: false
+        tags:
+          type: array
+          items:
+            type: string
+    MenuResponse:
+      type: object
+      properties:
+        categories:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuCategory'
+    OrderItem:
+      type: object
+      required: [item_id, quantity]
+      properties:
+        item_id:
+          type: integer
+          format: int64
+        quantity:
+          type: integer
+          minimum: 1
+    OrderRequest:
+      type: object
+      required: [items, client_name]
+      properties:
+        client_name:
+          type: string
+          example: "Иван Петров"
+        phone:
+          type: string
+          example: "+79161234567"
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderItem'
+        comment:
+          type: string
+          example: "Пожалуйста, без сахара"
+    OrderResponse:
+      type: object
+      properties:
+        order_id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum: [created, in_progress, ready, completed]
+          default: created
+        estimated_wait:
+          type: integer
+          description: Время ожидания в минутах
+        total_price:
+          type: number
+          format: float
+  responses:
+    BadRequest:
+      description: Некорректный запрос
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            invalid_phone:
+              value:
+                error: "Неверный формат телефона"
+            empty_order:
+              value:
+                error: "Заказ не может быть пустым"
+    ServerError:
+      description: Внутренняя ошибка сервера
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "Внутренняя ошибка, попробуйте позже"
+    TooManyRequests:
+      description: Слишком много запросов
+      headers:
+        Retry-After:
+          schema:
+            type: integer
+          example: 60
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            error: "Превышен лимит запросов"
+schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+      required: [error]
+examples:
+    FullMenuExample:
+      value:
+        categories:
+          - name: "Кофе"
+            items:
+              - id: 101
+                name: "Капучино Классический"
+                description: "Эспрессо с молочной пенкой"
+                price: 250.0
+                weight: "200 мл"
+                is_popular: true
+                tags: ["горячий", "кофе"]
+              - id: 102
+                name: "Латте с ванилью"
+                description: "Нежный кофе с ванильным сиропом"
+                price: 280.0
+                weight: "250 мл"
+                tags: ["горячий", "кофе", "сладкий"]
+          - name: "Десерты"
+            items:
+              - id: 201
+                name: "Тирамису"
+                description: "Классический итальянский десерт"
+                price: 350.0
+                weight: "150 г"
+                is_popular: true
+                tags: ["десерт", "итальянский"]
+              
+          - name: "Сезонное"
+            items:
+              - id: 301
+                name: "Клубничный фраппучино"
+                description: "Освежающий холодный напиток со свежей клубникой"
+                price: 320.0
+                weight: "300 мл"
+                tags: ["холодный", "сезонный", "новинка"]
+    OrderExample:
+      value:
+        client_name: "Мария Иванова"
+        phone: "+79161234567"
+        items:
+          - item_id: 101
+            quantity: 2
+          - item_id: 201
+            quantity: 1
+        comment: "Один капучино без сахара"

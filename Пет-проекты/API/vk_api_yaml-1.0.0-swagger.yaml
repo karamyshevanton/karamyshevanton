@@ -1,0 +1,285 @@
+# добавление и удаление друзей
+# просмотр друзей пользователя;
+# просмотр анкеты пользователя;
+# публикация поста в ленту;
+# загрузка медиа файлов для постов;
+# просмотр ленты постов (домашней и пользователей);
+# просмотр диалогов и чатов пользователя;
+# отправка и чтение сообщений в диалогах и чатах
+
+openapi: 3.0.0
+info:
+  title: VK Social Network API
+  description: REST API для социальной сети ВКонтакте (System Design Course)
+  version: 1.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/school-eed/vk_api_yaml/1.0.0
+  - url: https://api.vk.com/v1
+    description: Production server
+paths:
+  # Управление друзьями
+  /users/{user_id}/friends:
+    get:
+      summary: Просмотр друзей пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Список друзей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Добавить друга
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                friend_id:
+                  type: integer
+      responses:
+        '201':
+          description: Друг добавлен
+    delete:
+      summary: Удалить друга
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: friend_id
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Друг удалён
+  # Профиль пользователя
+  /users/{user_id}:
+    get:
+      summary: Просмотр анкеты пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Данные профиля
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+  # Управление постами
+  /posts:
+    post:
+      summary: Создать пост
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                media:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Пост создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+  /users/{user_id}/posts:
+    get:
+      summary: Просмотр постов пользователя
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Список постов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  /feed:
+    get:
+      summary: Просмотр домашней ленты (посты друзей)
+      responses:
+        '200':
+          description: Лента постов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+  # Управление сообщениями
+  /conversations:
+    get:
+      summary: Просмотр диалогов и чатов
+      responses:
+        '200':
+          description: Список диалогов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Conversation'
+  /conversations/{conversation_id}/messages:
+    get:
+      summary: Чтение сообщений из диалога
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Сообщения диалога
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Message'
+    post:
+      summary: Отправить сообщение
+      parameters:
+        - name: conversation_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MessageRequest'
+      responses:
+        '201':
+          description: Сообщение отправлено
+  /media:
+    post:
+      summary: Загрузка медиафайла
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Медиа загружено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Media'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        avatar_url:
+          type: string
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        birth_date:
+          type: string
+          format: date
+        city:
+          type: string
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+        author_id:
+          type: integer
+        text:
+          type: string
+        media_url:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    Conversation:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        last_message:
+          $ref: '#/components/schemas/Message'
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+        sender_id:
+          type: integer
+        text:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+    MessageRequest:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+    Media:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        type:
+          type: string
+          enum: [image, video, audio]
