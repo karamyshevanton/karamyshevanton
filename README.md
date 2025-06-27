@@ -20,7 +20,7 @@
 | [Stepik - Программирование на Python](https://stepik.org/course/67)  | 03.2025 - xx.2025  |
 | [Stepik - Интерактивный тренажёр по SQL](https://stepik.org/course/63054)  | 11.2024 - xx.2025  |
 | [Хекслет - подготовительный курс "Python-разработчик"](https://coursator.online/courses/podgotovitelnyy-kurs-python-razrabotchik/)  | 04.2023 - 05.2023  |
-| [ЯГТУ - Референт переводчик в бизнес сфере (английский)](https://dpo.ystu.ru/retraining/referent-perevodchik)  | 09.2016 - 01.2020  |
+| [ЯГТУ - Референт переводчик в бизнес сфере (английский)](https://dpo.ystu.ru/retraining/referent-perevodchik)  | 09.2016 - 06.2020  |
 
 # 🛠Навыки и инструменты: 
 	•	Визуализация бизнес-процессов: моделирование в BPMN и UML;
