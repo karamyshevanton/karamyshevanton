@@ -15,7 +15,7 @@
 | [Яндекс.Практикум - Системный аналитик](https://practicum.yandex.ru/systems-analyst/)  | 10.2024 - 06.2025  |
 | [Karpov.Course - Симулятор SQL](https://karpov.courses/simulator-sql) | 05.2025 - xx.2025 |
 | [Stepik - Системный анализ и проектирование](https://stepik.org/course/236467) | 06.2025 - 06.2025 |
-| [Stepik - Основы API](https://stepik.org/course/124947)  | 04.2025 - 04.2025]  |
+| [Stepik - Основы API](https://stepik.org/course/124947)  | 04.2025 - 04.2025  |
 | [Stepik - Postman-ниндзя: c нуля до автотестов](https://stepik.org/course/198019)  | 03.2025 - 04.2025  |
 | [Stepik - Программирование на Python](https://stepik.org/course/67)  | 03.2025 - xx.2025  |
 | [Stepik - Интерактивный тренажёр по SQL](https://stepik.org/course/63054)  | 11.2024 - xx.2025  |
