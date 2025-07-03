@@ -12,7 +12,7 @@
 
 | Курсы  | Дата  |
 | ------------- | ------------- |
-| [Яндекс.Практикум - Системный аналитик](https://practicum.yandex.ru/systems-analyst/)  | 10.2024 - 06.2025  |
+| [Яндекс.Практикум - Системный аналитик](https://practicum.yandex.ru/systems-analyst/)  | 10.2024 - 07.2025  |
 | [Karpov.Course - Симулятор SQL](https://karpov.courses/simulator-sql) | 05.2025 - xx.2025 |
 | [Stepik - Системный анализ и проектирование](https://stepik.org/course/236467) | 06.2025 - 06.2025 |
 | [Stepik - Основы API](https://stepik.org/course/124947)  | 04.2025 - 04.2025  |
