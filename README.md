@@ -15,8 +15,6 @@
 | [Stepik - Системный анализ и проектирование](https://stepik.org/course/236467) | 06.2025 - 06.2025 |
 | [Stepik - Основы API](https://stepik.org/course/124947)  | 04.2025 - 04.2025  |
 | [Stepik - Postman-ниндзя: c нуля до автотестов](https://stepik.org/course/198019)  | 03.2025 - 04.2025  |
-| [Stepik - Программирование на Python](https://stepik.org/course/67)  | 03.2025 - xx.2025  |
-| [Stepik - Интерактивный тренажёр по SQL](https://stepik.org/course/63054)  | 11.2024 - xx.2025  |
 | [Хекслет - подготовительный курс "Python-разработчик"](https://coursator.online/courses/podgotovitelnyy-kurs-python-razrabotchik/)  | 04.2023 - 05.2023  |
 | [ЯГТУ - Референт переводчик в бизнес сфере (английский)](https://dpo.ystu.ru/retraining/referent-perevodchik)  | 09.2016 - 06.2020  |
 
@@ -62,5 +60,4 @@ Soft skills:
 * Мой аккаунт на [Habr](https://habr.com/ru/users/theuna/)
 * Моё резюме на [hh.ru](https://yaroslavl.hh.ru/resume/b6cdb1a0ff0f045dd40039ed1f76304b4c5776)
 * Моё резюме на [Habr Карьера](https://career.habr.com/karamyshevanton)
-* Моё резюме на [GeekJob](https://gkjb.ru/gwy5)
 
